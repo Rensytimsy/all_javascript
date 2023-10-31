@@ -42,9 +42,15 @@ function gamePlayers(name,marker){
 
 const newPlayer = new gamePlayers("rensy","O");
 const secPlayer = new gamePlayers("Timo","X");
-console.log(newPlayer.name);
-console.log(newPlayer.marker);
-console.log(secPlayer.name);
-console.log(secPlayer.marker);
-newPlayer.call_name();
-secPlayer.call_name();
+gamePlayers.prototype.sayname = function (){
+    console.log("Hello there " + this.name);
+}
+console.log(Object.getPrototypeOf(secPlayer) === gamePlayers.prototype);
+newPlayer.sayname();
+secPlayer.sayname();
+// console.log(newPlayer.name);
+// console.log(newPlayer.marker);
+// console.log(secPlayer.name);
+// console.log(secPlayer.marker);
+// newPlayer.call_name();
+// secPlayer.call_name();

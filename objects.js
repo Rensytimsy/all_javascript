@@ -11,10 +11,10 @@ let person = {
     "nationalism" : "Kenyan"
 }
 /**Below is a good example of accessing value present in an object using dot notation */
-console.log(person.name);
-console.log(person.age);
+// console.log(person.name);
+// console.log(person.age);
 /**Below is a good example of accessing value present in an object using bracket notation */
-console.log(person["nationalism"]);
+// console.log(person["nationalism"]);
 
 /**
  * Above is quite a good approach when working with objects but we have limitations with this method
@@ -38,5 +38,26 @@ this.details = function() {
 }
 
 const newPerson = new newObj("Timothy", 20, "Kenyan");
-console.log(newPerson);
-console.log(newPerson.details());
+// console.log(newPerson);
+// console.log(newPerson.details());
+
+/**
+ * OBJECTS PROTOTYPES
+ * A good example of a prototype is this "const newPerson = new newObj("Timothy", 20, "Kenyan");" inherits from newObj
+ * A prototype is basically an oject that the original object inherits from.
+ * let's see what that means using the objectnewObj
+ * 
+ * The code below logs to the console true because "newPerson" object inherits from the original object "newOBJ"
+ * If an object does not inherit from the same object one will get false at the console
+ */
+console.log(Object.getPrototypeOf(newPerson) === newObj.prototype);
+//Using prototypes one can also assign new properties to the original object and can be accessed by objects which have inherited
+//Here is a good example
+newObj.prototype.sayName = function () {
+    console.log(`Hi my name is ${this.name}`);
+}
+//The code above shows how one can use a prototype to add new properties tho the object.
+//Lets see what the output will be.
+newPerson.sayName();
+//What we get to the console is "Hi my name is Timothy" which is what the new property contains.
+
