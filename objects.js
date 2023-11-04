@@ -1,4 +1,5 @@
 /**
+ * OBJECTS
  * an object is simply a collection of properties
  * A constructor object is used to create other objects
  * There are different ways of accessing values present in a object
@@ -61,3 +62,17 @@ newObj.prototype.sayName = function () {
 newPerson.sayName();
 //What we get to the console is "Hi my name is Timothy" which is what the new property contains.
 
+//Prototype 
+//a prototype is an object that inherits from an orignal object.
+function newObj(name, colour){
+    this.name = name;
+    this.colour = colour;
+}
+function newObj2(name, colour){
+    this.name = name;
+    this.colour = colour;
+}
+let rand2 = new newObj2("Timo", "blue");
+let randObj = new newObj("rensy", "red");
+console.log(randObj.name);
+console.log(Object.getPrototypeOf(rand2) === newObj.prototype);
