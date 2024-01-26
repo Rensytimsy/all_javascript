@@ -9,19 +9,21 @@ function my_library(title, author, pages){
     this.title = title;
     this.author = author;
     this.pages = pages;
+    // return JSON.stringify(this.title, this.author, this.pages);
 }
 
-function add_book(add_book_btn){
-    add_book_btn.addEventListener("click", (e) => {
-        let books_avail = new my_library(book_title.value, book_author.value, book_pages.value);
+add_book_btn.addEventListener("click", (e) => {
+    let books_avail = new my_library(title.value, author.value, pages.value);
+    Books.push(JSON.stringify(books_avail));
+    console.log(Books);
+    document.getElementById("books_page").innerHTML = Books;
+    book_title.value = ""
+    book_author.value = ""
+    book_pages.value = ""
+    console.log(Books)
+});
 
-        Books.push(JSON.stringify(books_avail));
-        document.getElementById("books_page").innerHTML = Books;
-        book_title.value = ""
-        book_author.value = ""
-        book_pages.value = ""
-        console.log(Books)
-    });
-
+function add_book(Books){
+  return console.log(Books);
 }
-add_book(add_book_btn);
+add_book(Books);
